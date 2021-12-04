@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Student from './Student';
+import studentsArr from './data'
+
+
+console.log(studentsArr)
 
 function App() {
+
+  const students = studentsArr.map((ele, idx) => {
+    return (
+      <Student
+        name={ele.name}
+        bio={ele.bio}
+        scores={ele.scores}
+        key={idx}
+      />
+    )
+  })
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section>
+        {students}
+      </section>
     </div>
   );
 }
